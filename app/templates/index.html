@@ -1,0 +1,78 @@
+{% extends "base.html" %} {% block content %}
+{% if form %}
+<div class="card" style="width: 22rem; margin: 5px; padding: 1rem; display: inline-block; vertical-align: top;">
+    <h3>Add a Request</h3>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <table class="table">
+            <tr>
+                <td>{{ form.title.label }} </td>
+                <td>{{ form.title }}</td>
+            </tr>
+
+            <tr>
+                <td> {{ form.description.label }}</td>
+                <td> {{ form.description }}</td>
+            </tr>
+
+            <tr>
+                <td> {{ form.client.label }}</td>
+                <td> {{ form.client }}</td>
+            </tr>
+
+            <tr>
+                    <td> {{ form.client_priority.label }}</td>
+                    <td> {{ form.client_priority }}</td>
+                </tr>
+
+            <tr>
+                <td> {{ form.product_area.label }}</td>
+                <td> {{ form.product_area }}</td>
+            </tr>
+
+            <tr>
+                    <td> {{ form.target_date.label }}</td>
+                    <td> {{ form.target_date }}</td>
+                </tr>
+        </table>
+
+        {{ form.submit(class_='btn btn-primary') }}
+
+        {% for error in form.title.errors %}
+        <div class="alert alert-danger" role="alert">
+            [{{ error }}]
+        </div>
+        {% endfor %}
+
+    </form>
+</div>
+{% endif %}
+
+<div class="card" style="width: 72%; margin: 5px; padding: 1rem; display: inline-block; vertical-align: top;">
+    <h3>Client Requests</h3>
+    <table class="table table-striped">
+        <tr valign="top" style="font-weight: bold;">
+            <td>
+                 Priority
+            </td>
+            <td>
+                Title
+            </td>
+            <td>
+                Client
+            </td>
+            <td>
+                Product Area
+            </td>
+            <td>
+                Target Date
+            </td>
+            <td>
+                Actions
+            </td>
+        </tr>
+        {% for request in requests %} {% include '_request.html' %} {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

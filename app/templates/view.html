@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="width: 72%; margin: 5px; padding: 1rem; display: inline-block; vertical-align: top;">
+   <h2>{{ request.title }} For {{ request.client }}</h2>
+   <p><b>Client Priority:</b> {{ request.client_priority }}</p>
+   <p><b>Product Area:</b> {{ request.product_area }}</p>
+   <p><b>Target Date:</b> {{ request.target_date }}</p>
+   <p><b>Reported By:</b> {{ request.reporter.username }}</p>
+   <p><b>Full Description:</b> {{ request.description }}</p>
+
+   <h3>Options</h3>
+   <a href="{{ url_for('delete', id=request.id) }}" class="btn btn-danger">Delete</a>
+
+   <a href="{{ url_for('index') }}" class="btn btn-primary">Return to List</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<tr valign="top">
+    <td>
+        <b>{{ request.client_priority }}</b>
+    </td>
+    <td>
+        <a href="{{ url_for('view', id=request.id) }}"> {{ request.title }}
+    </td>
+    <td>
+        {{ request.client }}
+    </td>
+    <td>
+        {{ request.product_area }}
+    </td>
+    <td>
+        {{ request.target_date }}
+    </td>
+    <td>
+        <a href="{{ url_for('view', id=request.id) }}" class="btn btn-primary">View</a> <a href="{{ url_for('delete', id=request.id) }}" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
