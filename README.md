@@ -2,7 +2,7 @@
 
 // View Online
 
-This project is deployed here: http://18.223.24.225
+This project is deployed here: http://18.223.24.225 - NOT CURRENTLY ACTIVE
 
 // How to Run Locally
 
